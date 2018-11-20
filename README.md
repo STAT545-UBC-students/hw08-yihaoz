@@ -60,7 +60,7 @@ Applied Features
 
 -   Use dashboard to add extra features including hidden sidebar and BC
     Liquor Store logo linked to [BC Liquor
-    Store](%22http://www.bcliquorstores.com%22)
+    Store](%22http://www.bcliquorstores.com%22) on top right.
 
 ### Feature 5
 
