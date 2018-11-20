@@ -16,7 +16,7 @@ This is the repo for hw08-yihaoz The aim of hw-08 is to add features to
 the BC liquor shiny app and deploy it.
 
 The app can be accessed
-[here](%22https://yihaoz.shinyapps.io/bcl_yihaoz/%22)
+[here](https://yihaoz.shinyapps.io/bcl_yihaoz/)
 
 Available Features
 ------------------
