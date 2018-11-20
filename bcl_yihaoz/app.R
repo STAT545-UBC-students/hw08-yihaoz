@@ -17,18 +17,18 @@ library(colourpicker)
 
 bcl <- read.csv("bcl-data.csv", stringsAsFactors = FALSE)
 
-# create hyperlink and logo in header
-dbHeader <- dashboardHeader(title = "BC Liquor Store Prices")
-dbHeader$children[[2]]$children <-  tags$a(href='http://www.bcliquorstores.com',
-                                           tags$img(src='https://seeklogovector.com/wp-content/uploads/2018/10/bc-liquor-stores-logo-vector.png',
-                                                    height='60',width='200'))
 
 # Define UI for application that draws a histogram
 ui <- dashboardPage(
+	# create hyperlink and logo in header
+	dashboardHeader(title = "BC Liquor Store Prices",
+							tags$li(a(href='http://www.bcliquorstores.com',
+								   tags$img(src='https://seeklogovector.com/wp-content/uploads/2018/10/bc-liquor-stores-logo-vector.png',
+								   		 height='60',width='200')),
+									class = "dropdown")),
     skin = "blue",
-#    dashboardHeader(title = "BC Liquor Store Prices"),
-    dbHeader,
 
+	# use dashboard to have the option to hide the panel
     dashboardSidebar(
         sliderInput("priceInput", "Price", 0, 100, c(25, 40), pre = "$"),
         radioButtons("typeInput", "Product type",
@@ -45,15 +45,13 @@ ui <- dashboardPage(
         tabsetPanel(
             tabPanel(
                 "Plot",
-                # let the user to pick the colour
                 fluidRow(
-                    #plotOutput("coolplot")
                     box(title = "Liquor price histogram", status = "primary",
                         width = 9,
                         solidHeader = TRUE,
                         collapsible = TRUE,
+                    	# let the user to pick the colour
                         colourInput("col", "Select histogram bar colour", "purple"),
-
                         plotOutput("coolplot"))
                 )
 
@@ -61,7 +59,6 @@ ui <- dashboardPage(
             ),
             tabPanel(
                 "Table",
-
                 # download button
                 div(style="display:inline-block",downloadButton('downloadData', 'Download Data'), style="float:right"),
 
@@ -110,6 +107,7 @@ server <- function(input, output) {
 
         # Sort by the price if sortByPrice is checked
         if (input$sortByPrice) {
+        	# conditional panel
             if (input$sortOrder == "Price from low to high") {
                 filtered <- arrange(filtered, Price)
             }
@@ -118,6 +116,7 @@ server <- function(input, output) {
             }
         }
         else {
+        	# keep the original df if sort is not checked
             filtered <- filtered
         }
     })
