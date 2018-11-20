@@ -50,7 +50,7 @@ Applied Features
 
 -   Add an image of the BC Liquor Store to the UI
 
--   ![](./bcl/www/drinkiing.gif)
+-   ![](./bcl_yihaoz/www/drinkiing.gif)
 
 ### Feature 3
 
