@@ -24,7 +24,7 @@ ui <- dashboardPage(
 	dashboardHeader(title = "BC Liquor Store Prices",
 							tags$li(a(href='http://www.bcliquorstores.com',
 								   tags$img(src='https://seeklogovector.com/wp-content/uploads/2018/10/bc-liquor-stores-logo-vector.png',
-								   		 height='60',width='200')),
+								   		 height='17',width='60')),
 									class = "dropdown")),
     skin = "blue",
 
